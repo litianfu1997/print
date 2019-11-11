@@ -5,9 +5,7 @@ import com.nnxy.print.service.LoginAndRegisterService;
 import com.nnxy.print.util.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author litianfu
@@ -45,6 +43,25 @@ public class LoginAndRegisterController {
                 return new Message("error","用户注册失败，请重试！");
             }
         }
+
+
+    }
+
+    @RequestMapping("/login")
+    @ResponseBody
+    public Message login(@RequestBody User user){
+        boolean exist = loginAndRegisterService.exist(user.getNumber());
+        if (exist == false){
+            return new Message("error","没有这个用户");
+        }else {
+            boolean flag = loginAndRegisterService.login(user);
+            if (flag == true){
+                return new Message("success","登陆成功");
+            }else {
+                return new Message("error","用户名或密码错误");
+            }
+        }
+
 
 
     }
