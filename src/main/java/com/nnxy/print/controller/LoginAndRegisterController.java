@@ -25,7 +25,7 @@ public class LoginAndRegisterController {
     @ResponseBody
     public Message register(@RequestParam("registerNum") String registerNum, @RequestParam("name")String name
                         , @RequestParam("phone") String phone, @RequestParam("password")String password){
-        //实例化user实体
+        //实例化user实体，我是github
         User user = new User();
         //封装user
         user.setNumber(registerNum);
