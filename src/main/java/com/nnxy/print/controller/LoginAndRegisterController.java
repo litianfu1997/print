@@ -56,7 +56,8 @@ public class LoginAndRegisterController {
         }else {
             boolean flag = loginAndRegisterService.login(user);
             if (flag == true){
-                return new Message("success","登陆成功");
+                User loginedUser = loginAndRegisterService.getUser(user);
+                return new Message("success","登陆成功",loginedUser);
             }else {
                 return new Message("error","用户名或密码错误");
             }

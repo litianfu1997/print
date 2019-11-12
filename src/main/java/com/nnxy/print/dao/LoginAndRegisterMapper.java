@@ -28,4 +28,7 @@ public interface LoginAndRegisterMapper {
 
     @Select("select count(1) from user where number = #{number} and password = #{password}")
     Integer login(User user);
+
+    @Select("select * from user where number = #{number} and password = #{password}")
+    User selectUser(User user);
 }
