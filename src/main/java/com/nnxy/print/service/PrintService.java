@@ -5,6 +5,8 @@ import com.nnxy.print.entity.Print;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @author litianfu
  * @version 1.0
@@ -25,5 +27,9 @@ public class PrintService {
             return true;
         }
 
+    }
+
+    public List<Print> printQueue() {
+        return printMapper.getUnPrintList();
     }
 }

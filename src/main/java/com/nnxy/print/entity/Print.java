@@ -27,4 +27,5 @@ public class Print {
     private String note;
     private Long gmtCreate;
     private Long gmtModify;
+    private Integer flag;
 }

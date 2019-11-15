@@ -3,6 +3,9 @@ package com.nnxy.print.dao;
 import com.nnxy.print.entity.Print;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 /**
  * @author litianfu
@@ -16,4 +19,7 @@ public interface PrintMapper {
     @Insert("insert into print(number,size,printStyle,printColor,note,gmtCreate,gmtModify) " +
             "values(#{number},#{size},#{printStyle},#{printColor},#{note},#{gmtCreate},#{gmtModify})")
     Integer insert(Print print);
+
+    @Select("select * from print where flag = 0 order by gmtModify ")
+    List<Print> getUnPrintList();
 }
